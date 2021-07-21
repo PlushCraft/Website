@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "7.0.0"
+    id "org.gretty" version "3.0.5"
+}
+
+group 'ga.guacaplushy'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
+    implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+    implementation 'org.eclipse.jetty:jetty-server:11.0.6'
+    implementation 'org.eclipse.jetty:jetty-webapp:11.0.6'
+    implementation 'org.jetbrains:annotations:21.0.1'
+}
+
+build.dependsOn = ["shadowJar"]
